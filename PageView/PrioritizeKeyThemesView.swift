@@ -60,6 +60,26 @@ struct PrioritizeKeyThemesView: View {
         }
     }
     
+    private var allItems: [String] {
+        storage.sdTexts + storage.smpTexts + storage.smaTexts + storage.kuliahTexts
+    }
+    
+    private var mostFrequentWords: [String] {
+        getMostFrequentWords(in: allItems, topN: 10)
+    }
+
+    private func getMostFrequentWords(in items: [String], topN: Int) -> [String] {
+        var wordsFrequency = [String: Int]()
+        for section in [storage.sdTexts, storage.smpTexts, storage.smaTexts, storage.kuliahTexts].flatMap({ $0 }) {
+            let words = section.components(separatedBy: .whitespacesAndNewlines)
+            for word in words where !discardedItems.contains(word) {
+                wordsFrequency[word, default: 0] += 1
+            }
+        }
+        let sortedWords = wordsFrequency.sorted { $0.value > $1.value }
+        return sortedWords.map { $0.key }
+    }
+
     var body: some View {
         VStack {
             Text("Select a category to prioritize")
@@ -105,14 +125,27 @@ struct PrioritizeKeyThemesView: View {
             }
             .navigationBarTitle("Prioritize Key Themes")
             
-//            NavigationLink(destination: MainContentTabView().environmentObject(storage)) {
-//                Text("Next Page")
-//                    .padding()
-//                    .foregroundColor(.white)
-//                    .background(Color.blue)
-//                    .cornerRadius(10)
-//                    .padding()
-//            }
+            // Show most frequent words
+            VStack {
+                Text("Most frequent words:")
+                    .font(.headline)
+                ForEach(mostFrequentWords, id: \.self) { word in
+                    Text("\(word)")
+                }
+            }
+            .onAppear {
+                // Call getMostFrequentWords on apperance
+                let _ = mostFrequentWords
+            }
+            
+            //            NavigationLink(destination: MainContentTabView().environmentObject(storage)) {
+            //                Text("Next Page")
+            //                    .padding()
+            //                    .foregroundColor(.white)
+            //                    .background(Color.blue)
+            //                    .cornerRadius(10)
+            //                    .padding()
+            //            }
         }
     }
 }
