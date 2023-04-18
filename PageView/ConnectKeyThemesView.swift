@@ -56,21 +56,58 @@ struct ConnectKeyThemesView: View {
                     }
                 }))
                 
-                ZStack {
-                        ForEach(storage.sdTexts + storage.smpTexts + storage.smaTexts + storage.kuliahTexts, id: \.self) { text in
-                            Text(text)
-                                .foregroundColor(.black)
-                                .font(.title2)
-                                .padding()
-                                .background(Color.white.opacity(0.8))
-                                .cornerRadius(10)
-                        }
+                VStack {
+                    // Texts for section 1
+                    ForEach(storage.sdTexts, id: \.self) { text in
+                        Text(text)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
                     }
-                    .padding()
-                    .opacity(showReading ? 1 : 0) // Show or hide the text layer based on showReading variable
+                    Spacer()
+                }
 
+                VStack {
+                    // Texts for section 2
+                    ForEach(storage.smpTexts, id: \.self) { text in
+                        Text(text)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                    }
+                    Spacer()
+                }
 
-                
+                VStack {
+                    // Texts for section 3
+                    ForEach(storage.smaTexts, id: \.self) { text in
+                        Text(text)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                    }
+                    Spacer()
+                }
+
+                VStack {
+                    // Texts for section 4
+                    ForEach(storage.kuliahTexts, id: \.self) { text in
+                        Text(text)
+                            .foregroundColor(.black)
+                            .font(.title2)
+                            .padding()
+                            .background(Color.white.opacity(0.8))
+                            .cornerRadius(10)
+                    }
+                    Spacer()
+                }
+
                 VStack(){
                     
                     // Action Button...
