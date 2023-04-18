@@ -71,7 +71,7 @@ struct ConnectKeyThemesView: View {
                 if showNavigation == true {
                     
                     // show text that you have to screenshot this so it would be saved to your device
-                    NavigationLink(destination: ClosingView()) {
+                    NavigationLink(destination: ManyShapedSkillView()) {
                         Text("Next Page")
                             .font(.title2.bold())
                             .foregroundColor(.white)
