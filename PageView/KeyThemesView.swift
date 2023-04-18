@@ -11,6 +11,7 @@ class TextStorage: ObservableObject {
     @Published var smpTexts: [String] = []
     @Published var smaTexts: [String] = []
     @Published var kuliahTexts: [String] = []
+    @Published var shouldKeep: [Bool] = []
 }
 
 struct KeyThemesView: View {
