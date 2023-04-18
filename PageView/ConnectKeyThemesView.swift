@@ -16,6 +16,7 @@ struct Line {
 }
 
 struct ConnectKeyThemesView: View {
+    @EnvironmentObject var storage: TextStorage
     @State private var lines = [Line]()
     @State private var selectedColor: Color = .black
     @State private var selectedLineWidth: CGFloat = 1
@@ -25,65 +26,81 @@ struct ConnectKeyThemesView: View {
     @State private var colorSwitcher : Bool = true
     
     var body: some View {
-        VStack {
-            Canvas { context, size in
-                
-                for line in lines {
-                    
-                    var path = Path()
-                    path.addLines(line.points)
-                    
-                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                }
-            }
-            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                let newPoint = value.location
-                
-                if colorSwitcher == true {
-                    if value.translation.width + value.translation.height == 0 {
-                        lines.append(Line(points: [newPoint], color: Color(.orange), lineWidth: 5))
-                    }else{
-                        let index = lines.count - 1
-                        lines[index].points.append(newPoint)
-                    }
-                }else{
-                    if value.translation.width + value.translation.height == 0 {
-                        lines.append(Line(points: [newPoint], color: Color(.blue), lineWidth: 5))
-                    }else{
-                        let index = lines.count - 1
-                        lines[index].points.append(newPoint)
+        ZStack{
+            VStack {
+                // First layer: canvas
+                Canvas { context, size in
+                    for line in lines {
+                        var path = Path()
+                        path.addLines(line.points)
+                        context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
                     }
                 }
-            }))
-            VStack(){
-                
-                // Action Button...
-                if showNavigation == false {
+                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                    let newPoint = value.location
                     
-                    Button("Done Connecting?"){
-                        showNavigation.toggle()
-                        showReading.toggle()
+                    if colorSwitcher == true {
+                        if value.translation.width + value.translation.height == 0 {
+                            lines.append(Line(points: [newPoint], color: Color(.orange), lineWidth: 5))
+                        }else{
+                            let index = lines.count - 1
+                            lines[index].points.append(newPoint)
+                        }
+                    }else{
+                        if value.translation.width + value.translation.height == 0 {
+                            lines.append(Line(points: [newPoint], color: Color(.blue), lineWidth: 5))
+                        }else{
+                            let index = lines.count - 1
+                            lines[index].points.append(newPoint)
+                        }
                     }
-                    .font(.title2.bold())
+                }))
+                
+                ZStack {
+                        ForEach(storage.sdTexts + storage.smpTexts + storage.smaTexts + storage.kuliahTexts, id: \.self) { text in
+                            Text(text)
+                                .foregroundColor(.black)
+                                .font(.title2)
+                                .padding()
+                                .background(Color.white.opacity(0.8))
+                                .cornerRadius(10)
+                        }
+                    }
                     .padding()
-                }
+                    .opacity(showReading ? 1 : 0) // Show or hide the text layer based on showReading variable
+
+
                 
-                if showNavigation == true {
+                VStack(){
                     
-                    // show text that you have to screenshot this so it would be saved to your device
-                    NavigationLink(destination: ManyShapedSkillView()) {
-                        Text("Next Page")
-                            .font(.title2.bold())
-                            .foregroundColor(.white)
-                            .padding(.vertical, 20)
-                            .frame(width: 200)
-                            .background(Color.black,in:
-                                            RoundedRectangle(cornerRadius: 12))
+                    // Action Button...
+                    if showNavigation == false {
+                        
+                        Button("Done Connecting?"){
+                            showNavigation.toggle()
+                            showReading.toggle()
+                        }
+                        .font(.title2.bold())
+                        .padding()
+                    }
+                    
+                    if showNavigation == true {
+                        
+                        // show text that you have to screenshot this so it would be saved to your device
+                        NavigationLink(destination: ManyShapedSkillView()) {
+                            Text("Next Page")
+                                .font(.title2.bold())
+                                .foregroundColor(.white)
+                                .padding(.vertical, 20)
+                                .frame(width: 200)
+                                .background(Color.black,in:
+                                                RoundedRectangle(cornerRadius: 12))
+                        }
                     }
                 }
+                .offset(y:-100)
+                .navigationBarTitle("Connect The Dots!")
             }
-            .offset(y:-100)
-            .navigationBarTitle("Connect The Dots!")
         }
         .overlay(
             HStack{
@@ -111,6 +128,6 @@ struct ConnectKeyThemesView: View {
 
 struct ConnectKeyThemesView_Previews: PreviewProvider {
     static var previews: some View {
-        ConnectKeyThemesView()
+        ConnectKeyThemesView().environmentObject(TextStorage())
     }
 }
