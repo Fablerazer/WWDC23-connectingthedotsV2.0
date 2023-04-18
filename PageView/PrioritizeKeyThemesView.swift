@@ -73,7 +73,7 @@ struct PrioritizeKeyThemesView: View {
         for section in [storage.sdTexts, storage.smpTexts, storage.smaTexts, storage.kuliahTexts].flatMap({ $0 }) {
             let words = section.components(separatedBy: .whitespacesAndNewlines)
             for word in words {
-                if !ignoreWords.contains(word) && !discardedItems.contains(word) {
+                if !ignoreWords.contains(word), !discardedItems.contains(word), !CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: word)) {
                     wordsFrequency[word, default: 0] += 1
                 }
             }
@@ -81,7 +81,7 @@ struct PrioritizeKeyThemesView: View {
         let sortedWords = wordsFrequency.sorted { $0.value > $1.value }
         return Array(sortedWords.prefix(topN)).map { $0.key }
     }
-    
+
     var body: some View {
         VStack {
             Text("Select a category to prioritize")
