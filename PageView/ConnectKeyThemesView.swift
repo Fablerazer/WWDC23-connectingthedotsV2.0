@@ -26,11 +26,6 @@ struct ConnectKeyThemesView: View {
     
     var body: some View {
         VStack {
-            
-            Text("Connect The Dots!")
-                .font(.title)
-                .padding(.top,50)
-            
             Canvas { context, size in
                 
                 for line in lines {
@@ -88,9 +83,7 @@ struct ConnectKeyThemesView: View {
                 }
             }
             .offset(y:-100)
-            
-            
-            
+            .navigationBarTitle("Connect The Dots!")
         }
         .overlay(
             HStack{

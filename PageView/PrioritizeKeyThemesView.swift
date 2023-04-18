@@ -81,7 +81,7 @@ struct PrioritizeKeyThemesView: View {
         let sortedWords = wordsFrequency.sorted { $0.value > $1.value }
         return Array(sortedWords.prefix(topN)).map { $0.key }
     }
-
+    
     var body: some View {
         VStack {
             Text("Select a category to prioritize")
@@ -140,14 +140,14 @@ struct PrioritizeKeyThemesView: View {
                 let _ = mostFrequentWords
             }
             
-            //            NavigationLink(destination: MainContentTabView().environmentObject(storage)) {
-            //                Text("Next Page")
-            //                    .padding()
-            //                    .foregroundColor(.white)
-            //                    .background(Color.blue)
-            //                    .cornerRadius(10)
-            //                    .padding()
-            //            }
+            NavigationLink(destination: ConnectKeyThemesView().environmentObject(storage)) {
+                Text("Next Page")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+                    .padding()
+            }
         }
     }
 }
