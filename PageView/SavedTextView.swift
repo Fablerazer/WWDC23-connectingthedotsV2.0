@@ -13,7 +13,7 @@ struct SavedTextsView: View {
     
     var body: some View {
         List {
-            Section(header: Text("SD")) {
+            Section(header: Text("Before & After Elementary School (SD)")) {
                 ForEach(storage.sdTexts, id: \.self) { text in
                     Text(text)
                 }
@@ -25,7 +25,7 @@ struct SavedTextsView: View {
                 }
             }
 
-            Section(header: Text("SMP")) {
+            Section(header: Text("Junior High School (SMP)")) {
                 ForEach(storage.smpTexts, id: \.self) { text in
                     Text(text)
                 }
@@ -37,7 +37,7 @@ struct SavedTextsView: View {
                 }
             }
 
-            Section(header: Text("SMA")) {
+            Section(header: Text("Senior High School (SMA)")) {
                 ForEach(storage.smaTexts, id: \.self) { text in
                     Text(text)
                 }
@@ -49,7 +49,7 @@ struct SavedTextsView: View {
                 }
             }
 
-            Section(header: Text("Kuliah")) {
+            Section(header: Text("University Untill Now (Kuliah)")) {
                 ForEach(storage.kuliahTexts, id: \.self) { text in
                     Text(text)
                 }

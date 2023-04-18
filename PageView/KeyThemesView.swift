@@ -24,7 +24,7 @@ struct KeyThemesView: View {
     var body: some View {
         NavigationView {
             Form {
-                Section(header: Text("SD")) {
+                Section(header: Text("Before & After Elementary School (SD)")) {
                     TextField("Enter text here", text: $sdText)
                     Button(action: {
                         storage.sdTexts.append(sdText)
@@ -34,7 +34,7 @@ struct KeyThemesView: View {
                     })
                 }
                 
-                Section(header: Text("SMP")) {
+                Section(header: Text("Junior High School (SMP)")) {
                     TextField("Enter text here", text: $smpText)
                     Button(action: {
                         storage.smpTexts.append(smpText)
@@ -44,7 +44,7 @@ struct KeyThemesView: View {
                     })
                 }
                 
-                Section(header: Text("SMA")) {
+                Section(header: Text("Senior High School (SMA)")) {
                     TextField("Enter text here", text: $smaText)
                     Button(action: {
                         storage.smaTexts.append(smaText)
@@ -54,7 +54,7 @@ struct KeyThemesView: View {
                     })
                 }
                 
-                Section(header: Text("Kuliah")) {
+                Section(header: Text("University Untill Now (Kuliah)")) {
                     TextField("Enter text here", text: $kuliahText)
                     Button(action: {
                         storage.kuliahTexts.append(kuliahText)
