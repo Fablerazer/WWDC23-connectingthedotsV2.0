@@ -65,21 +65,23 @@ struct PrioritizeKeyThemesView: View {
     }
     
     private var mostFrequentWords: [String] {
-        getMostFrequentWords(in: allItems, topN: 10)
+        getMostFrequentWords(in: allItems, topN: 10, ignoreWords: ["the", "and", "[T]","[L]","[T&L]"])
     }
-
-    private func getMostFrequentWords(in items: [String], topN: Int) -> [String] {
+    
+    private func getMostFrequentWords(in items: [String], topN: Int, ignoreWords: [String]) -> [String] {
         var wordsFrequency = [String: Int]()
         for section in [storage.sdTexts, storage.smpTexts, storage.smaTexts, storage.kuliahTexts].flatMap({ $0 }) {
             let words = section.components(separatedBy: .whitespacesAndNewlines)
-            for word in words where !discardedItems.contains(word) {
-                wordsFrequency[word, default: 0] += 1
+            for word in words {
+                if !ignoreWords.contains(word) && !discardedItems.contains(word) {
+                    wordsFrequency[word, default: 0] += 1
+                }
             }
         }
         let sortedWords = wordsFrequency.sorted { $0.value > $1.value }
-        return sortedWords.map { $0.key }
+        return Array(sortedWords.prefix(topN)).map { $0.key }
     }
-
+    
     var body: some View {
         VStack {
             Text("Select a category to prioritize")
