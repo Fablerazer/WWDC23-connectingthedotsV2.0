@@ -67,6 +67,20 @@ struct KeyThemesView: View {
                         Text("Save")
                     })
                 }
+                
+                Section(
+                ){
+                    Button(action: {
+                                        // Navigate to the next page
+                                    }, label: {
+                                        Text("Next Page")
+                                            .padding()
+                                            .foregroundColor(.white)
+                                            .background(Color.blue)
+                                            .cornerRadius(10)
+                                    })
+                                    .padding()
+                }
             }
             .navigationBarTitle("Key Journey Themes")
             .navigationBarItems(trailing:
@@ -80,6 +94,25 @@ struct KeyThemesView: View {
         .environmentObject(storage)
     }
 }
+
+class NavigationState: ObservableObject {
+    @Published var currentPage: AnyView
+    
+    init<Content: View>(@ViewBuilder startPage: () -> Content) {
+        self.currentPage = AnyView(startPage())
+    }
+    
+    func push<Content: View>(_ view: Content) {
+        self.currentPage = AnyView(view)
+    }
+}
+
+struct NextPageView: View {
+    var body: some View {
+        Text("This is the next page")
+    }
+}
+
 
 struct KeyThemesView_Previews: PreviewProvider {
     static var previews: some View {
