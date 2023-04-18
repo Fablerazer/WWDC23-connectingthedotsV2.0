@@ -24,8 +24,12 @@ struct KeyThemesView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Explanation")) {
+                                Text("This is the explanation of the form section")
+                            }
+
                 Section(header: Text("Before & After Elementary School (SD)")) {
-                    TextField("Enter text here", text: $sdText)
+                    TextField("Enter your key journey here", text: $sdText)
                     Button(action: {
                         storage.sdTexts.append(sdText)
                         sdText = ""
@@ -35,7 +39,7 @@ struct KeyThemesView: View {
                 }
                 
                 Section(header: Text("Junior High School (SMP)")) {
-                    TextField("Enter text here", text: $smpText)
+                    TextField("Enter your key journey here", text: $smpText)
                     Button(action: {
                         storage.smpTexts.append(smpText)
                         smpText = ""
@@ -45,7 +49,7 @@ struct KeyThemesView: View {
                 }
                 
                 Section(header: Text("Senior High School (SMA)")) {
-                    TextField("Enter text here", text: $smaText)
+                    TextField("Enter your key journey here", text: $smaText)
                     Button(action: {
                         storage.smaTexts.append(smaText)
                         smaText = ""
@@ -54,8 +58,8 @@ struct KeyThemesView: View {
                     })
                 }
                 
-                Section(header: Text("University Untill Now (Kuliah)")) {
-                    TextField("Enter text here", text: $kuliahText)
+                Section(header: Text("University Until Now (Kuliah)")) {
+                    TextField("Enter your key journey here", text: $kuliahText)
                     Button(action: {
                         storage.kuliahTexts.append(kuliahText)
                         kuliahText = ""
@@ -64,7 +68,7 @@ struct KeyThemesView: View {
                     })
                 }
             }
-            .navigationBarTitle("Key Themes")
+            .navigationBarTitle("Key Journey Themes")
             .navigationBarItems(trailing:
                 NavigationLink(destination: SavedTextsView().environmentObject(storage)) {
                     Text("Check the saved text here →")
