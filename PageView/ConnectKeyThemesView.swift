@@ -71,15 +71,15 @@ struct ConnectKeyThemesView: View {
                 if showNavigation == true {
                     
                     // show text that you have to screenshot this so it would be saved to your device
-                    //                    NavigationLink(destination: StoryView2(level: 4)) {
-                    //                        Text("Next Page")
-                    //                            .font(.title2.bold())
-                    //                            .foregroundColor(.white)
-                    //                            .padding(.vertical, 20)
-                    //                            .frame(width: 200)
-                    //                            .background(Color.black,in:
-                    //                                            RoundedRectangle(cornerRadius: 12))
-                    //                    }
+                    NavigationLink(destination: ClosingView()) {
+                        Text("Next Page")
+                            .font(.title2.bold())
+                            .foregroundColor(.white)
+                            .padding(.vertical, 20)
+                            .frame(width: 200)
+                            .background(Color.black,in:
+                                            RoundedRectangle(cornerRadius: 12))
+                    }
                 }
             }
             .offset(y:-100)
