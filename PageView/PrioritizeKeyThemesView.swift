@@ -140,7 +140,6 @@ struct PrioritizeKeyThemesView: View {
                 }
             }
             .onAppear {
-                // Call getMostFrequentWords on apperance
                 let _ = mostFrequentWords
             }
             

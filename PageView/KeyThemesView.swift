@@ -27,7 +27,7 @@ struct KeyThemesView: View {
             VStack {
                 Form {
                     Section(header: Text("Reminder")) {
-                        Text("- Just use big ideas only\n- Minimum 3 key journey themes per section, max 18 char, max total of 50 Key Themes")
+                        Text("- Just use big ideas only\n- Minimum 3 key journey themes per section")
                     }
                     
                     Section(header: Text("Before & After Elementary School (SD)")) {

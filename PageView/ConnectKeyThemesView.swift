@@ -5,7 +5,6 @@
 //  Created by Faizal Hudya Rizfianto on 19/04/23.
 //
 
-//import Foundation
 import SwiftUI
 
 struct Line {
@@ -28,8 +27,6 @@ struct ConnectKeyThemesView: View {
     
     var body: some View {
         VStack {
-            // Use filteredItems in your view
-            // Rest of your code
             ZStack{
                 // First layer: canvas
                 Canvas { context, size in
@@ -133,7 +130,7 @@ struct ConnectKeyThemesView: View {
                             // Action Button...
                             if showNavigation == false {
                                 
-                                Button("Done Connecting?"){
+                                Button("Screenshot & Click Here"){
                                     showNavigation.toggle()
                                     showReading.toggle()
                                 }
@@ -143,7 +140,6 @@ struct ConnectKeyThemesView: View {
                             
                             if showNavigation == true {
                                 
-                                // show text that you have to screenshot this so it would be saved to your device
                                 NavigationLink(destination: ManyShapedSkillView()) {
                                     Text("Next Page")
                                         .font(.title2.bold())

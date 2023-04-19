@@ -31,12 +31,7 @@ struct TutorialThreeView: View {
             Image("connectkeythemes")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-//                .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
-            // small screen adoption...
-//                .scaleEffect(getScreenBounds().height < 750 ? 0.8 : 1)
-//                .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
                 .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
-//                .offset(y: getScreenBounds().height < 750 ? +10 : +20)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
@@ -59,15 +54,15 @@ struct TutorialThreeView: View {
                     
                     // NavigationLink...
                     
-                        NavigationLink(destination: KeyThemesView(), label:{
-                            Text("Can't Wait!")
-                                .fontWeight(.semibold)
-                                .foregroundColor(.black)
-                                .padding(.vertical, 20)
-                                .frame(width: 215)
-                                .background(Color.orange,in:
-                                                RoundedRectangle(cornerRadius: 12))
-                        })
+                    NavigationLink(destination: KeyThemesView(), label:{
+                        Text("Can't Wait!")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 20)
+                            .frame(width: 215)
+                            .background(Color.orange,in:
+                                            RoundedRectangle(cornerRadius: 12))
+                    })
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))

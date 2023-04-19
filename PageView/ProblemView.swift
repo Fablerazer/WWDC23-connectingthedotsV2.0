@@ -57,15 +57,15 @@ struct ProblemView: View {
                 // Bottom Content...
                 HStack(spacing: 25){
                     
-                        NavigationLink(destination: SolutionView(), label:{
-                            Text("Next Page")
-                                .fontWeight(.semibold)
-                                .foregroundColor(.white)
-                                .padding(.vertical, 20)
-                                .frame(width: 215)
-                                .background(Color.black,in:
-                                                RoundedRectangle(cornerRadius: 12))
-                        })
+                    NavigationLink(destination: SolutionView(), label:{
+                        Text("Next Page")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 20)
+                            .frame(width: 215)
+                            .background(Color.black,in:
+                                            RoundedRectangle(cornerRadius: 12))
+                    })
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))

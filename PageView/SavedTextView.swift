@@ -54,7 +54,7 @@ struct SavedTextsView: View {
                     }
                 }
                 ForEach(mostFrequentWords, id: \.self) { word in
-                    Text("\(word): ")
+                    Text("\(word) ")
                 }
                 .onAppear {
                     // Call getMostFrequentWords on apperance

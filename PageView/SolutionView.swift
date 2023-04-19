@@ -32,13 +32,11 @@ struct SolutionView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
-            // small screen adoption...
                 .scaleEffect(getScreenBounds().height < 750 ? 0.8 : 1)
                 .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
                 .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
                 .offset(y: getScreenBounds().height < 750 ? +10 : +20)
             
-            //Description Text
             VStack(alignment: .center, spacing: 12){
                 Text("I have a solution for you!\nIt's called connecting the dot\n\nWe have to start from the past\nWhy can we be the person we are today?\nWhat is the causality?\n\nAnd how we can improve what we have within us and boost it to our own\n\nAlso this method is used by\nthe founder of Apple Company 'Steve Jobs'")
                     .font(.system(Font.TextStyle.title, design: .rounded))
@@ -54,20 +52,18 @@ struct SolutionView: View {
         .frame(maxHeight: .infinity)
         .overlay(
             VStack{
-                // Bottom Content...
                 HStack(spacing: 25){
                     
-                    // NavigationLink...
                     
-                        NavigationLink(destination: TutorialOneView(), label:{
-                            Text("Let's get to it!")
-                                .fontWeight(.semibold)
-                                .foregroundColor(.black)
-                                .padding(.vertical, 20)
-                                .frame(width: 215)
-                                .background(Color.orange,in:
-                                                RoundedRectangle(cornerRadius: 12))
-                        })
+                    NavigationLink(destination: TutorialOneView(), label:{
+                        Text("Let's get to it!")
+                            .fontWeight(.semibold)
+                            .foregroundColor(.black)
+                            .padding(.vertical, 20)
+                            .frame(width: 215)
+                            .background(Color.orange,in:
+                                            RoundedRectangle(cornerRadius: 12))
+                    })
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
