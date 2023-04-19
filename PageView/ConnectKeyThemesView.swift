@@ -27,116 +27,134 @@ struct ConnectKeyThemesView: View {
     
     var body: some View {
         ZStack{
-            VStack {
-                // First layer: canvas
-                Canvas { context, size in
-                    for line in lines {
-                        var path = Path()
-                        path.addLines(line.points)
-                        context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
-                    }
+            // First layer: canvas
+            Canvas { context, size in
+                for line in lines {
+                    var path = Path()
+                    path.addLines(line.points)
+                    context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
                 }
-                .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
-                    let newPoint = value.location
-                    
-                    if colorSwitcher == true {
-                        if value.translation.width + value.translation.height == 0 {
-                            lines.append(Line(points: [newPoint], color: Color(.orange), lineWidth: 5))
-                        }else{
-                            let index = lines.count - 1
-                            lines[index].points.append(newPoint)
-                        }
-                    }else{
-                        if value.translation.width + value.translation.height == 0 {
-                            lines.append(Line(points: [newPoint], color: Color(.blue), lineWidth: 5))
-                        }else{
-                            let index = lines.count - 1
-                            lines[index].points.append(newPoint)
-                        }
-                    }
-                }))
+            }
+            .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local).onChanged({ value in
+                let newPoint = value.location
                 
+                if colorSwitcher == true {
+                    if value.translation.width + value.translation.height == 0 {
+                        lines.append(Line(points: [newPoint], color: Color(.orange), lineWidth: 5))
+                    }else{
+                        let index = lines.count - 1
+                        lines[index].points.append(newPoint)
+                    }
+                }else{
+                    if value.translation.width + value.translation.height == 0 {
+                        lines.append(Line(points: [newPoint], color: Color(.blue), lineWidth: 5))
+                    }else{
+                        let index = lines.count - 1
+                        lines[index].points.append(newPoint)
+                    }
+                }
+            }))
+            HStack {
                 VStack {
-                    // Texts for section 1
-                    ForEach(storage.sdTexts, id: \.self) { text in
-                        Text(text)
+                    VStack {
+                        // Texts for section 1
+                        Text("Before & After Elementary School (SD)")
                             .foregroundColor(.black)
                             .font(.title2)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(10)
-                    }
-                    Spacer()
-                }
-
-                VStack {
-                    // Texts for section 2
-                    ForEach(storage.smpTexts, id: \.self) { text in
-                        Text(text)
-                            .foregroundColor(.black)
-                            .font(.title2)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(10)
-                    }
-                    Spacer()
-                }
-
-                VStack {
-                    // Texts for section 3
-                    ForEach(storage.smaTexts, id: \.self) { text in
-                        Text(text)
-                            .foregroundColor(.black)
-                            .font(.title2)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(10)
-                    }
-                    Spacer()
-                }
-
-                VStack {
-                    // Texts for section 4
-                    ForEach(storage.kuliahTexts, id: \.self) { text in
-                        Text(text)
-                            .foregroundColor(.black)
-                            .font(.title2)
-                            .padding()
-                            .background(Color.white.opacity(0.8))
-                            .cornerRadius(10)
-                    }
-                    Spacer()
-                }
-
-                VStack(){
-                    
-                    // Action Button...
-                    if showNavigation == false {
-                        
-                        Button("Done Connecting?"){
-                            showNavigation.toggle()
-                            showReading.toggle()
+                        HStack {
+                            ForEach(storage.sdTexts, id: \.self) { text in
+                                Text(text)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .padding()
+                                    .cornerRadius(10)
+                            }
                         }
-                        .font(.title2.bold())
-                        .padding()
+                        Spacer()
                     }
                     
-                    if showNavigation == true {
+                    VStack {
+                        // Texts for section 2
+                        Text("Junior High School (SMP)")
+                            .foregroundColor(.black)
+                            .font(.title2)
+                        HStack {
+                            ForEach(storage.smpTexts, id: \.self) { text in
+                                Text(text)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .padding()
+                                    .cornerRadius(10)
+                            }
+                        }
+                        Spacer()
+                    }
+                    
+                    VStack {
+                        // Texts for section 3
+                        Text("Senior High School (SMA)")
+                            .foregroundColor(.black)
+                            .font(.title2)
+                        HStack {
+                            ForEach(storage.smaTexts, id: \.self) { text in
+                                Text(text)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .padding()
+                                    .cornerRadius(10)
+                            }
+                        }
+                        Spacer()
+                    }
+                    
+                    VStack {
+                        // Texts for section 4
+                        Text("University Until Now (Kuliah)")
+                            .foregroundColor(.black)
+                            .font(.title2)
+                        HStack {
+                            ForEach(storage.kuliahTexts, id: \.self) { text in
+                                Text(text)
+                                    .foregroundColor(.black)
+                                    .font(.title2)
+                                    .padding()
+                                    .cornerRadius(10)
+                            }
+                        }
+                        Spacer()
+                    }
+                    
+                    VStack(){
                         
-                        // show text that you have to screenshot this so it would be saved to your device
-                        NavigationLink(destination: ManyShapedSkillView()) {
-                            Text("Next Page")
-                                .font(.title2.bold())
-                                .foregroundColor(.white)
-                                .padding(.vertical, 20)
-                                .frame(width: 200)
-                                .background(Color.black,in:
-                                                RoundedRectangle(cornerRadius: 12))
+                        // Action Button...
+                        if showNavigation == false {
+                            
+                            Button("Done Connecting?"){
+                                showNavigation.toggle()
+                                showReading.toggle()
+                            }
+                            .font(.title2.bold())
+                            .padding()
+                        }
+                        
+                        if showNavigation == true {
+                            
+                            // show text that you have to screenshot this so it would be saved to your device
+                            NavigationLink(destination: ManyShapedSkillView()) {
+                                Text("Next Page")
+                                    .font(.title2.bold())
+                                    .foregroundColor(.white)
+                                    .padding(.vertical, 18)
+                                    .frame(width: 200)
+                                    .background(Color.black,in:
+                                                    RoundedRectangle(cornerRadius: 12))
+                            }
                         }
                     }
+                    
+                    .offset(y:-80)
+                    .navigationBarTitle("Connect The Dots!")
                 }
-                .offset(y:-100)
-                .navigationBarTitle("Connect The Dots!")
             }
         }
         .overlay(
@@ -157,7 +175,7 @@ struct ConnectKeyThemesView: View {
                     
                 }
             }
-                .padding(EdgeInsets(top: 0, leading: 0, bottom: 25, trailing: 0))
+                .padding(EdgeInsets(top: 0, leading: 0, bottom: 15, trailing: 0))
             ,alignment: .bottom
         )
     }
