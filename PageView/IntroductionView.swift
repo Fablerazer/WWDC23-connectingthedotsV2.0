@@ -18,7 +18,7 @@ struct IntroductionView: View {
                 .font(.largeTitle.bold())
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: 50, leading: 80, bottom: 0, trailing: 80))
+                .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 80))
             //Sub-Title
             Text("Introduction")
                 .font(.title.bold())

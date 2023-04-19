@@ -18,7 +18,7 @@ struct SolutionView: View {
                 .font(.largeTitle.bold())
                 .foregroundColor(.black)
                 .multilineTextAlignment(.center)
-                .padding(EdgeInsets(top: 50, leading: 80, bottom: 0, trailing: 80))
+                .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 80))
             //Sub-Title
             Text("Solution")
                 .font(.title.bold())
@@ -59,7 +59,7 @@ struct SolutionView: View {
                     
                     // NavigationLink...
                     
-                        NavigationLink(destination: KeyThemesView(), label:{
+                        NavigationLink(destination: TutorialView(), label:{
                             Text("Let's get to it!")
                                 .fontWeight(.semibold)
                                 .foregroundColor(.black)

@@ -102,7 +102,7 @@ struct PrioritizeKeyThemesView: View {
                 }
                 .padding()
             }
-            Text("if there are some 'less frequent words'\nand it's not important to you\ngo back and delete some of it ")
+            Text("if there are some 'less frequent words'\nand it's not important to you\ngo back and delete some of it to save space")
                 .underline(true, color: .orange)
                 .multilineTextAlignment(.center)
                 .font(.title3.bold())
