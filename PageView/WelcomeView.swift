@@ -48,7 +48,7 @@ struct WelcomeView: View {
                     .padding(.top,5)
                 
                 //  Best build & run on Ipad Pro 11 inch Message
-                Text("Best build setting on Ipad Pro 11 inch")
+                Text("Best build setting for Xcode & Ipad Pro 11 inch")
                     .multilineTextAlignment(.center)
                     .font(.body.bold())
                     .foregroundColor(.gray)
