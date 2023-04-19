@@ -20,7 +20,7 @@ struct ProblemView: View {
                 .multilineTextAlignment(.center)
                 .padding(EdgeInsets(top: 50, leading: 80, bottom: 0, trailing: 80))
             //Sub-Title
-            Text("Introduction")
+            Text("Problems")
                 .font(.title.bold())
                 .underline(true, color: .orange)
                 .foregroundColor(.black)

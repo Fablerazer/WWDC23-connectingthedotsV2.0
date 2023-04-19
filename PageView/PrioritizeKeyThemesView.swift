@@ -102,6 +102,10 @@ struct PrioritizeKeyThemesView: View {
                 }
                 .padding()
             }
+            Text("if there are some 'less frequent words'\nand it's not important to you\ngo back and delete some of it ")
+                .underline(true, color: .orange)
+                .multilineTextAlignment(.center)
+                .font(.title3.bold())
             
             Toggle(isOn: $showDiscardedItems, label: {
                 Text("Show discarded items")
