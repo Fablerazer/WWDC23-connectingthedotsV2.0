@@ -1,13 +1,13 @@
 //
 //  File.swift
-//
+//  
 //
 //  Created by Faizal Hudya Rizfianto on 19/04/23.
 //
 
 import SwiftUI
 
-struct SolutionView: View {
+struct TutorialThreeView: View {
     @State var showNavigation: Bool = false
     @State var showReading: Bool = true
     
@@ -20,7 +20,7 @@ struct SolutionView: View {
                 .multilineTextAlignment(.center)
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 80))
             //Sub-Title
-            Text("Solution")
+            Text("Tutorial 3")
                 .font(.title.bold())
                 .underline(true, color: .orange)
                 .foregroundColor(.black)
@@ -28,24 +28,24 @@ struct SolutionView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("2")
+            Image("connectkeythemes")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
+//                .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
             // small screen adoption...
-                .scaleEffect(getScreenBounds().height < 750 ? 0.8 : 1)
-                .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
+//                .scaleEffect(getScreenBounds().height < 750 ? 0.8 : 1)
+//                .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
                 .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
-                .offset(y: getScreenBounds().height < 750 ? +10 : +20)
+//                .offset(y: getScreenBounds().height < 750 ? +10 : +20)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("I have a solution for you!\nIt's called connecting the dot\n\nWe have to start from the past\nWhy can we be the person we are today?\nWhat is the causality?\n\nAnd how we can improve what we have within us and boost it to our own\n\nAlso this method is used by\nthe founder of Apple Company 'Steve Jobs'")
+                Text("Find the pattern!\n\nConnect each one of them and see if you discover something from it\n\nTo see yourself in a 'new light'")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 70, trailing: 80))
+                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 130, trailing: 80))
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
@@ -59,8 +59,8 @@ struct SolutionView: View {
                     
                     // NavigationLink...
                     
-                        NavigationLink(destination: TutorialOneView(), label:{
-                            Text("Let's get to it!")
+                        NavigationLink(destination: KeyThemesView(), label:{
+                            Text("Can't Wait!")
                                 .fontWeight(.semibold)
                                 .foregroundColor(.black)
                                 .padding(.vertical, 20)
@@ -84,8 +84,9 @@ struct SolutionView: View {
     }
 }
 
-struct SolutionView_Previews: PreviewProvider {
+struct TutorialThreeView_Previews: PreviewProvider {
     static var previews: some View {
-        SolutionView()
+        TutorialThreeView()
     }
 }
+
