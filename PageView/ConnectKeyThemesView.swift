@@ -140,7 +140,7 @@ struct ConnectKeyThemesView: View {
                             
                             if showNavigation == true {
                                 
-                                NavigationLink(destination: ManyShapedSkillView()) {
+                                NavigationLink(destination: ClosingView()) {
                                     Text("Next Page")
                                         .font(.title2.bold())
                                         .foregroundColor(.white)
