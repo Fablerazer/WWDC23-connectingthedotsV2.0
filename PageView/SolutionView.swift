@@ -1,13 +1,13 @@
 //
-//  IntroductionView.swift
-//  WWDC 2023 Faizal
+//  File.swift
 //
-//  Created by Faizal Hudya Rizfianto on 17/04/23.
+//
+//  Created by Faizal Hudya Rizfianto on 19/04/23.
 //
 
 import SwiftUI
 
-struct IntroductionView: View {
+struct SolutionView: View {
     @State var showNavigation: Bool = false
     @State var showReading: Bool = true
     
@@ -28,7 +28,7 @@ struct IntroductionView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("MainCharacter")
+            Image("2")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
@@ -40,7 +40,7 @@ struct IntroductionView: View {
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Hello, Faizal Here!\n\nI'm from Indonesia\nIf you don't know where it is\n'Bali' is the word for you 😅\n\nI love to build & create something, especially about design, tech, and startup related\n\nI also interested in finance and music")
+                Text("I have a solution for you!\nIt's called connecting the dot\n\nWe have to start from the past\nWhy can we be the person we are today?\nWhat is the causality?\n\nAnd how we can improve what we have within us and boost it to our own\n\nAlso this method is used by\nthe founder of Apple Company 'Steve Jobs'")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
@@ -56,15 +56,18 @@ struct IntroductionView: View {
             VStack{
                 // Bottom Content...
                 HStack(spacing: 25){
-                    NavigationLink(destination: ProblemView(), label:{
-                        Text("Next Page")
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .padding(.vertical, 20)
-                            .frame(width: 215)
-                            .background(Color.black,in:
-                                            RoundedRectangle(cornerRadius: 12))
-                    })
+                    
+                    // NavigationLink...
+                    
+                        NavigationLink(destination: KeyThemesView(), label:{
+                            Text("Let's get to it!")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.black)
+                                .padding(.vertical, 20)
+                                .frame(width: 215)
+                                .background(Color.orange,in:
+                                                RoundedRectangle(cornerRadius: 12))
+                        })
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
@@ -81,14 +84,8 @@ struct IntroductionView: View {
     }
 }
 
-struct IntroductionView_Previews: PreviewProvider {
+struct SolutionView_Previews: PreviewProvider {
     static var previews: some View {
-        IntroductionView()
-    }
-}
-
-extension View{
-    func getScreenBounds()->CGRect{
-        return UIScreen.main.bounds
+        SolutionView()
     }
 }

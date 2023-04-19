@@ -1,13 +1,13 @@
 //
-//  IntroductionView.swift
-//  WWDC 2023 Faizal
+//  File.swift
+//  
 //
-//  Created by Faizal Hudya Rizfianto on 17/04/23.
+//  Created by Faizal Hudya Rizfianto on 19/04/23.
 //
 
 import SwiftUI
 
-struct IntroductionView: View {
+struct ProblemView: View {
     @State var showNavigation: Bool = false
     @State var showReading: Bool = true
     
@@ -28,7 +28,7 @@ struct IntroductionView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("MainCharacter")
+            Image("4")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
@@ -40,7 +40,7 @@ struct IntroductionView: View {
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Hello, Faizal Here!\n\nI'm from Indonesia\nIf you don't know where it is\n'Bali' is the word for you 😅\n\nI love to build & create something, especially about design, tech, and startup related\n\nI also interested in finance and music")
+                Text("Are you one of these people?\n\nA student who's still confused about finding his life path and where his future's heading\nEven though he has studied in that field but still feels like he chose the wrong major.\n\nA high school student who's still confused about their future, which college major would be suitable for their journey.\n\nDon't worry, you're not alone..")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
@@ -56,15 +56,16 @@ struct IntroductionView: View {
             VStack{
                 // Bottom Content...
                 HStack(spacing: 25){
-                    NavigationLink(destination: ProblemView(), label:{
-                        Text("Next Page")
-                            .fontWeight(.semibold)
-                            .foregroundColor(.white)
-                            .padding(.vertical, 20)
-                            .frame(width: 215)
-                            .background(Color.black,in:
-                                            RoundedRectangle(cornerRadius: 12))
-                    })
+                    
+                        NavigationLink(destination: SolutionView(), label:{
+                            Text("Next Page")
+                                .fontWeight(.semibold)
+                                .foregroundColor(.white)
+                                .padding(.vertical, 20)
+                                .frame(width: 215)
+                                .background(Color.black,in:
+                                                RoundedRectangle(cornerRadius: 12))
+                        })
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
@@ -81,14 +82,8 @@ struct IntroductionView: View {
     }
 }
 
-struct IntroductionView_Previews: PreviewProvider {
+struct ProblemView_Previews: PreviewProvider {
     static var previews: some View {
-        IntroductionView()
-    }
-}
-
-extension View{
-    func getScreenBounds()->CGRect{
-        return UIScreen.main.bounds
+        ProblemView()
     }
 }
