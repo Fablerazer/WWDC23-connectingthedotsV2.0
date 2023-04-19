@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SolutionView: View {
+struct TutorialView: View {
     @State var showNavigation: Bool = false
     @State var showReading: Bool = true
     
@@ -84,9 +84,9 @@ struct SolutionView: View {
     }
 }
 
-struct SolutionView_Previews: PreviewProvider {
+struct TutorialView_Previews: PreviewProvider {
     static var previews: some View {
-        SolutionView()
+        TutorialView()
     }
 }
 
