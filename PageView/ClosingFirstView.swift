@@ -2,12 +2,12 @@
 //  File.swift
 //  
 //
-//  Created by Faizal Hudya Rizfianto on 19/04/23.
+//  Created by Faizal Hudya Rizfianto on 20/04/23.
 //
 
 import SwiftUI
 
-struct TutorialThreeView: View {
+struct ClosingFirstView: View {
     @State var showNavigation: Bool = false
     @State var showReading: Bool = true
     
@@ -20,7 +20,7 @@ struct TutorialThreeView: View {
                 .multilineTextAlignment(.center)
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 0, trailing: 80))
             //Sub-Title
-            Text("Tutorial 3")
+            Text("Closing")
                 .font(.title.bold())
                 .underline(true, color: .orange)
                 .foregroundColor(.black)
@@ -28,22 +28,30 @@ struct TutorialThreeView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("connectkeythemes")
+            Image("4")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-//                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
+                .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
+            // small screen adoption...
+                .scaleEffect(getScreenBounds().height < 750 ? 0.8 : 1)
+                .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
+                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
+                .offset(y: getScreenBounds().height < 750 ? +10 : +20)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Find the pattern!\nAnd count the points, which has the most score!\n(Fitness: 1+1+1+2= 5 Points)\n\nConnect each of them and see if you discover something from it\n\nTo see yourself in a 'new light'")
-                    .font(.system(Font.TextStyle.title, design: .rounded))
+                Text("The goal of this tool is for you to find your own journey\nby reconnecting the dots in your past\n\n Using this tool, I gain valuable insights about myself, improve my level of self-discovery, and generate new ideas too!\n\n for the example my highest point is\n\nExploring Tech (1+2+2+2= 7)\n-> I want to make a youtube channel based on my skill of exploring tech\n-> I want work in a QA role (Quality Assurance)\n\n")
+                    .font(.system(Font.TextStyle.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 25, leading: 80, bottom: 130, trailing: 80))
+                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 130, trailing: 80))
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
+        .navigationBarTitle("Closing")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
         .padding()
         .frame(width: getScreenBounds().width)
         .frame(maxHeight: .infinity)
@@ -53,16 +61,17 @@ struct TutorialThreeView: View {
                 HStack(spacing: 25){
                     
                     // NavigationLink...
-                    
-                    NavigationLink(destination: KeyThemesView(), label:{
-                        Text("Can't Wait!")
+                    NavigationLink(destination: ClosingView(), label:{
+                        
+                        Text("Next Page")
                             .fontWeight(.semibold)
-                            .foregroundColor(.black)
+                            .foregroundColor(.white)
                             .padding(.vertical, 20)
                             .frame(width: 215)
-                            .background(Color.orange,in:
+                            .background(Color.black,in:
                                             RoundedRectangle(cornerRadius: 12))
                     })
+                    
                     
                 }
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 0, trailing: 20))
@@ -79,9 +88,9 @@ struct TutorialThreeView: View {
     }
 }
 
-struct TutorialThreeView_Previews: PreviewProvider {
+struct ClosingFirstView_Previews: PreviewProvider {
     static var previews: some View {
-        TutorialThreeView()
+        ClosingFirstView()
     }
 }
 

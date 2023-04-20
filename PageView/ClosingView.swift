@@ -28,7 +28,7 @@ struct ClosingView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("14")
+            Image("1")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
@@ -37,10 +37,10 @@ struct ClosingView: View {
                 .scaleEffect(getScreenBounds().height > 2000 ? 0.5 : 1)
                 .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
                 .offset(y: getScreenBounds().height < 750 ? +10 : +20)
-
+            
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("The goal of this tool is for you to find your own journey\nby reconnecting the dots in your past\n\nIf you still dont find it, dont worry\ntry again and reflect back ''Did i miss something?''\n\nIt takes time but the most important part is to remember on \n''what I mostly do, what I've spent time on, what I care about'' \nso you can use it as your strength point\n\nYou can search ''I,T,Pi, Comb shaped skills'' for more info\n\n''You can't connect the dots by looking forward, \nYou can only connect them by looking backwards''\nSteve Jobs")
+                Text("or the fun part, combine them!\nGaming & Music (Both 5 points)\n-> I want to make a game that combine music and a fun gameplay\n-> I want to work in a game company as a Music Composer or Sound Designer\n\nIf you still dont find it, dont worry\ntry again and reflect back ''Did i miss something?''\n\n''You can't connect the dots by looking forward, \nYou can only connect them by looking backwards''\nSteve Jobs\n\n")
                     .font(.system(Font.TextStyle.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
@@ -49,6 +49,9 @@ struct ClosingView: View {
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }
+        .navigationBarTitle("Closing")
+        .navigationBarTitleDisplayMode(.inline)
+        .navigationBarHidden(true)
         .padding()
         .frame(width: getScreenBounds().width)
         .frame(maxHeight: .infinity)
@@ -58,13 +61,16 @@ struct ClosingView: View {
                 HStack(spacing: 25){
                     
                     // NavigationLink...
-                        Text("Back button to restart")
+                    NavigationLink(destination: ClosingTwoView(), label:{
+                        
+                        Text("Next Page")
                             .fontWeight(.semibold)
                             .foregroundColor(.white)
                             .padding(.vertical, 20)
                             .frame(width: 215)
-                            .background(Color.red,in:
+                            .background(Color.black,in:
                                             RoundedRectangle(cornerRadius: 12))
+                    })
                     
                     
                 }

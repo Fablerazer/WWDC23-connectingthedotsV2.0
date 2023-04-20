@@ -34,7 +34,7 @@ struct TutorialOneView: View {
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Reflect back to your past\nThe purpose is for self-discovery\n\nA tip from me:\n1. Categorize & Prioritize Scoring Points (P)\n[T] Things that you've done frequently or spent your time on (1P)\n[L] Things that you ''enjoyed doing'' back then (1P)\n[T&L] If both, (2P)\n\n2. Avoid putting things that almost belong to one category:\nPiano, vocal group -> Music\nTennis, swimming, gym -> Fitness")
+                Text("Reflect back to your past\nThe purpose is for self-discovery\n\nA tip from me:\nCategorize & Prioritize Scoring Points(P)\n[T] Things that you've done frequently or spent your time on (1P)\n[L] Things that you ''enjoyed doing'' back then (1P)\n[T&L] If both (2P)\n\nAvoid putting things that almost belong to one category:\nPiano, vocal group -> Music\nTennis, swimming, gym -> Fitness")
                     .font(.system(Font.TextStyle.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
