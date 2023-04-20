@@ -28,7 +28,7 @@ struct ClosingView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("1")
+            Image("4")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
