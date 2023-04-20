@@ -31,16 +31,16 @@ struct TutorialThreeView: View {
             Image("connectkeythemes")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
+//                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Find the pattern!\n\nConnect each one of them and see if you discover something from it\n\nTo see yourself in a 'new light'")
+                Text("Find the pattern!\n\nConnect each of them and see if you discover something from it\n\nTo see yourself in a 'new light'")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 130, trailing: 80))
+                    .padding(EdgeInsets(top: 25, leading: 80, bottom: 130, trailing: 80))
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }

@@ -31,11 +31,10 @@ struct TutorialOneView: View {
             Image("keyjourneythemes")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Reflect back to your past\nThe purpose is for self-discovery\n\nHow to categorize & prioritize:\n[T] What things that you used to do frequently and spend your time on\n[L] What things that you enjoyed doing back then\n[T&L] If both\n\nAvoid putting things that almost belong in one category:\nPiano, vocal group -> Music\nTennis, swimming, gym -> Fitness\nDon't separate them but put them together.")
+                Text("Reflect back to your past\nThe purpose is for self-discovery\n\nA tip from me:\n1. Categorize & Prioritize Scoring Points (P)\n[T] Things that you've done frequently or spent your time on (1P)\n[L] Things that you ''enjoyed doing'' back then (1P)\n[T&L] If both, (2P)\n\n2. Avoid putting things that almost belong to one category:\nPiano, vocal group -> Music\nTennis, swimming, gym -> Fitness")
                     .font(.system(Font.TextStyle.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)

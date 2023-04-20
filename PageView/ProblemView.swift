@@ -40,7 +40,7 @@ struct ProblemView: View {
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Are you one of these people?\n\nA student who's still confused about finding his life path and where his future's heading\nEven though he has studied in that field but still feels like he chose the wrong major.\n\nA high school student who's still confused about their future, which college major would be suitable for their journey.\n\nDon't worry, you're not alone..")
+                Text("Are you one of these people?\n\n- A student who is feeling uncertain about which field of study will be suitable for your journey ahead\n\n- You've studied hard but still feeling like you've chosen the wrong major\n\n- Still finding your life path and where the future is heading to\n\nDon't worry, you're not alone..")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)

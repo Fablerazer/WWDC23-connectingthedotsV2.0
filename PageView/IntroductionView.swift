@@ -40,7 +40,7 @@ struct IntroductionView: View {
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("Hello, Faizal Here!\n\nI'm from Indonesia\nIf you don't know where it is\n'Bali' is the word for you 😅\n\nI love to build & create something, especially about design, tech, and startup related\n\nI also interested in finance and music")
+                Text("Hello, Faizal Here!\n\nI'm from Indonesia\nIf you don't know where it is\n'Bali' is the word for you 😅\n\nI love to build & create something, especially related to design, tech, and startups\n\nI'm also interested in finance & music")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)

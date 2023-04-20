@@ -28,7 +28,7 @@ struct ClosingView: View {
                 .padding(EdgeInsets(top: 0, leading: 80, bottom: 30, trailing: 80))
             
             //Image display
-            Image("1")
+            Image("14")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .frame(width: getScreenBounds().width - 100*2, height: getScreenBounds().width - 100*5)
@@ -40,7 +40,7 @@ struct ClosingView: View {
 
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("The goal of this tools is for you to find your own journey\nby reconnecting the dot in your past\n\nIf you still dont find it, dont worry\ntry again and reflect back ''am i missed something?''\n\nIt takes time but the important part is to always remember on \n''what i'm mostly doing, what i spent time on, what i care about'' so you can use it as your strength point\n\nYou can search ''I,T,Pi, Comb shaped skills'' for more info\n\n''You can't connect the dots by looking forward, you can only connect them by looking backwards''\nSteve Jobs")
+                Text("The goal of this tool is for you to find your own journey\nby reconnecting the dots in your past\n\nIf you still dont find it, dont worry\ntry again and reflect back ''Did i miss something?''\n\nIt takes time but the most important part is to remember on \n''what I mostly do, what I've spent time on, what I care about'' \nso you can use it as your strength point\n\nYou can search ''I,T,Pi, Comb shaped skills'' for more info\n\n''You can't connect the dots by looking forward, \nYou can only connect them by looking backwards''\nSteve Jobs")
                     .font(.system(Font.TextStyle.title3, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)

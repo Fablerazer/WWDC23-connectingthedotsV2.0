@@ -31,16 +31,16 @@ struct TutorialTwoView: View {
             Image("prioritizekeythemes")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
+//                .scaleEffect(getScreenBounds().height < 1700 ? 0.7 : 1)
             
             //Description Text
             VStack(alignment: .center, spacing: 12){
-                Text("if there are some 'less frequent words'\nand it's not important to you\n\njust delete some of it so you can focus")
+                Text("If there are some 'less frequent words'\nand it's not something important to you\n\nJust delete them \nso it's easier for you to focus")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
                     .multilineTextAlignment(.center)
-                    .padding(EdgeInsets(top: 0, leading: 80, bottom: 130, trailing: 80))
+                    .padding(EdgeInsets(top: 25, leading: 80, bottom: 130, trailing: 80))
             }
             .frame(maxWidth: .infinity, alignment: .center)
         }

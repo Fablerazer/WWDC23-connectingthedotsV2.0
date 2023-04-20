@@ -38,7 +38,7 @@ struct SolutionView: View {
                 .offset(y: getScreenBounds().height < 750 ? +10 : +20)
             
             VStack(alignment: .center, spacing: 12){
-                Text("I have a solution for you!\nIt's called connecting the dot\n\nWe have to start from the past\nWhy can we be the person we are today?\nWhat is the causality?\n\nAnd how we can improve what we have within us and boost it to our own\n\nAlso this method is used by\nthe founder of Apple Company 'Steve Jobs'")
+                Text("''Connecting The Dot'' is here for you!!\n\nWe'll start from your past\nHow can we be who we're today?\nWhat are the causalities?\n\nAnd how we can improve what we've had and boost it for our own benefit\n\nThis framework is also used by\nthe founder of Apple Company 'Steve Jobs'")
                     .font(.system(Font.TextStyle.title, design: .rounded))
                     .fontWeight(.semibold)
                     .foregroundColor(Color.black)
